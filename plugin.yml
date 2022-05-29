@@ -1,0 +1,5 @@
+name: Airdrops
+api: 4.0.0
+version: 1.0
+main: AppGallery\Airdrops\Loader
+author: AppGallery

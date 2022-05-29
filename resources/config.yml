@@ -1,0 +1,20 @@
+command:
+  name: airdrops
+  aliases:
+    - drops
+  permission: airdrops.permission
+  usage: "&cUsage: /{command} help"
+  description: "Airdrops command!"
+particle: "pocketmine\\world\\particle\\LavaParticle"
+sound: "pocketmine\\world\\sound\\ExplodeSound"
+
+item-name: "&l&eAirdrops"
+item-lore:
+  - "&l&eAirdrops Lore"
+  - "&l&eAirdrops Lore 2"
+  - "&l&eAirdrops Lore 3"
+
+min-count-per-items: 5
+max-count-per-items: 64
+maximum-items: 10
+
