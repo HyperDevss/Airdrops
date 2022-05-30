@@ -87,7 +87,7 @@ class AirdropsCommand extends Command{
     }
 
     private function parseEdit(CommandSender $sender, string $commandLabel, array $args): void{
-        if ($sender instanceof Player && $sender->hasPermission($this->permission)) new AirdropsMenu($sender, true); else{
+        if ($sender instanceof Player && $this->testPermission($sender)) new AirdropsMenu($sender, true); else{
             $sender->sendMessage(KnownTranslationFactory::pocketmine_command_error_permission($commandLabel)->prefix(TextFormat::RED));
         }
     }
