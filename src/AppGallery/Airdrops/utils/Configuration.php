@@ -25,13 +25,9 @@ final class Configuration{
         self::$contents = yaml_parse_file(Loader::getInstance()->getDataFolder() . 'config.yml');
         $permission = self::getCommand('permission');
         if ($permission !== false && $permission !== "") {
-            if (PermissionManager::getInstance()->addPermission(new Permission($permission, "Aidrops command permission", [DefaultPermissionNames::GROUP_OPERATOR => true]))){
-                Loader::getInstance()->getLogger()->info(TextFormat::GREEN . $permission.' has been registered!');
-            } else {
-                Loader::getInstance()->getLogger()->error(TextFormat::RED . $permission.' already was registered!');
-            }
             $opRoot = PermissionManager::getInstance()->getPermission(DefaultPermissions::ROOT_OPERATOR);
-            $opRoot->addChild($permission, true);
+            DefaultPermissions::registerPermission(new Permission($permission, "Aidrops command permission"), [$opRoot]);
+            Loader::getInstance()->getLogger()->info(TextFormat::GREEN . $permission.' has been registered!');
         }
     }
 
