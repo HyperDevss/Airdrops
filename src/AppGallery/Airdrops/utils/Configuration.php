@@ -16,7 +16,7 @@ final class Configuration{
     private static array $contents = [];
 
     public static function load(): void{
-        Loader::getInstance()->saveResource("config.yml", true);
+        Loader::getInstance()->saveResource("config.yml");
         if (!file_exists(Loader::getInstance()->getDataFolder() . 'config.yml')){
             Loader::getInstance()->getLogger()->error(TextFormat::RED . "config.yml file was not found in resources directory");
             Loader::getInstance()->getServer()->getPluginManager()->disablePlugin(Loader::getInstance());
