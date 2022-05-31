@@ -13,6 +13,7 @@ use AppGallery\Airdrops\utils\InventorySerializer;
 use AppGallery\Airdrops\utils\Randomizer;
 use pocketmine\block\BlockFactory;
 use pocketmine\item\ItemFactory;
+use muqsit\invmenu\InvMenuHandler;
 use pocketmine\item\VanillaItems;
 use pocketmine\permission\DefaultPermissionNames;
 use pocketmine\permission\Permission;
@@ -43,6 +44,9 @@ class Loader extends PluginBase{
             $command->setPermission($permission);
         }
         $commandMap->register(Configuration::getCommand('name') ?? 'airdrops', $command);
+        if(!InvMenuHandler::isRegistered()){
+           InvMenuHandler::register($this);
+        }
     }
 
     private function initBlock(): void{
